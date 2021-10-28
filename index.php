@@ -17,7 +17,7 @@
             <div class="col-md-4">
            
                 <div class="card bg-dark text-white">
-                    <img src="images/truyenngan/hai số phận.jpg" class="card-img" alt="...">
+                    <img src="images/haisophan.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <!-- end col-md-4 -->
             <div class="col-md-4">
                 <div class="card bg-dark text-white">
-                    <img src="images/tongiao/giận.jpg" class="card-img" alt="...">
+                    <img src="images/gian.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
                    
                     </div>
@@ -34,7 +34,7 @@
             <!-- end col-md-4 -->
             <div class="col-md-4">
                 <div class="card bg-dark text-white">
-                    <img src="images/tongiao/thiền sư và em bé 5 tuổi.jpg" class="card-img" alt="...">
+                    <img src="images/thiensuvaembe5tuoi.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
                     
                     </div>

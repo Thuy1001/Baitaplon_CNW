@@ -21,7 +21,7 @@
 
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tongiao/thiền sư và em bé 5 tuổi.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/thiensuvaembe5tuoi.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Thiền sư và em bé 5 tuổi</h5>
                                 <div class="card-text product-price">
@@ -35,7 +35,7 @@
 
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tongiao/tĩnh lặng.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/tinhlang.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Tĩnh lặng</h5>
                                 <div class="card-text product-price">
@@ -49,7 +49,7 @@
                    
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tongiao/muốn an được an.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/muonanduocan.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Muốn an được an</h5>
                                 <div class="card-text product-price">
@@ -64,7 +64,7 @@
                     
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tongiao/giận.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/gian.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Giận</h5>
                                 <div class="card-text product-price">
@@ -86,7 +86,7 @@
 
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/truyenngan/quê nội.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/quenoi.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Quê nội</h5>
                                 <div class="card-text product-price">
@@ -100,7 +100,7 @@
 
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/truyenngan/hai số phận.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/haisophan.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Hai số phận</h5>
                                 <div class="card-text product-price">
@@ -114,7 +114,7 @@
                    
                 <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/truyenngan/tắt đèn.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/Tatden.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Tắt đèn</h5>
                                 <div class="card-text product-price">
@@ -129,7 +129,7 @@
                     
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/truyenngan/tự yêu.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="images/tuyeu.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title product-title">Tự yêu</h5>
                                 <div class="card-text product-price">
