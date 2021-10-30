@@ -179,16 +179,15 @@
                 //4. Redirect with MEssage to Manage Food page
                 if($result2 == true)
                 {
-                    //Data inserted Successfullly                  
-                    //header('location:'.SITEURL.'../admin/products.php');
-                    header("location:http://localhost:88/baitaplon/admin/products.php");
+                    $_SESSION['Add'] = "<div class='error'>Food Added Successfully.</div>";
+                    header('location:../admin/products.php');
                 }
                 else
                 {
                     //FAiled to Insert Data
-                    $_SESSION['btnAddPro'] = "<div class='error'>Failed to Add Product.</div>";
+                    $_SESSION['Add'] = "<div class='error'>Failed to Add Product.</div>";
                     //header('location:'.SITEURL.'../admin/products.php');
-                    //header('location:../admin/products.php');
+                    header('location:../admin/products.php');
                 }
 
                 

@@ -1,6 +1,39 @@
 <?php include "../admin/header.php" ?>
-<?php include "../config.php" ?>
+<?php include "../admin/config.php" ?>
 <link rel="stylesheet" href="css/adm.css">
+
+<?php 
+                    if(isset($_SESSION['Add']))
+                    {
+                        echo $_SESSION['Add'];
+                        unset($_SESSION['Add']);
+                    }
+
+                    if(isset($_SESSION['delete']))
+                    {
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+
+                    if(isset($_SESSION['upload']))
+                    {
+                        echo $_SESSION['upload'];
+                        unset($_SESSION['upload']);
+                    }
+
+                    if(isset($_SESSION['unauthorize']))
+                    {
+                        echo $_SESSION['unauthorize'];
+                        unset($_SESSION['unauthorize']);
+                    }
+
+                    if(isset($_SESSION['update']))
+                    {
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
+                    }
+                
+                ?>
 
 <div class="container">
 
@@ -67,6 +100,7 @@
                                 $pro_title = $row['pro_title'];
                                 $pro_cat = $row['pro_cat'];
                                 $pro_price = $row['pro_price'];
+                                $pro_desc = $row['pro_desc'];
                                 $pro_quantity = $row['quantity'];
                                 $image_name = $row['feature_image'];                 
                                 //$action                              
@@ -89,8 +123,10 @@
                                     </td>
                                     
                                     <td>
-                                            <a href="edit_product.php?id=<?php echo $row['pro_id'];  ?>"><i class="fa fa-edit"></i></a>
-                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                            <a href="<?php echo SITEURL; ?>admin/edit_pro.php?id=<?php echo $pro_id;  ?>"><i class="fa fa-edit"></i></a>
+                                           
+                                            <a href="<?php echo SITEURL; ?>admin/delete_pro.php?id=<?php echo $pro_id; ?>"><i class="fa fa-trash"></i></a>
+                                            
                                     </td>   
                                 </tr>
                 

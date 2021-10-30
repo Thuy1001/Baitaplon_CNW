@@ -2,7 +2,7 @@
 <!-- search -->
     <nav class="navbar navbar-light bg-img">
         <div class="container-fluid">
-            <form class="d-flex mx-auto col-md-6">
+            <form  action="<?php echo SITEURL; ?>food-search.php" method="POST" class="d-flex mx-auto col-md-6">
                 <input class="form-control me-2" type="search" placeholder="Search for Book.." aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>     
