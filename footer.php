@@ -1,5 +1,5 @@
 <!-- footer -->
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 social text-center letf">
                 <ul>
@@ -16,10 +16,10 @@
             </div> <!--end col-->
         </div> <!--end row-->
     </div> <!--end container-fluid-->
-    </div>
+</div>
     <!-- end footer -->
 
-    </div>
+</div>
     <!-- end wrapper -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.js"></script>

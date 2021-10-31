@@ -1,104 +1,58 @@
 <?php include "header.php" ?>
+<link rel="stylesheet" href="css/style.css">
+
 <!-- search -->
-    <nav class="navbar navbar-light bg-img">
+<nav class="navbar navbar-light bg-img">
         <div class="container-fluid">
-            <form  class="d-flex mx-auto col-md-6">
-                <input class="form-control me-2" type="search" placeholder="Search for Book.." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex mx-auto col-md-6" method="post" action="search.php">
+                <input name ="search" class="form-control me-2" type="search" placeholder="Search for Book.." aria-label="Search">
+                <button class ="btn btn-outline-success" type="submit" name="ok">Search </buton>
+                
             </form>     
         </div>
         <!-- end container-fluid -->
-    </nav>
-    <!-- end nav search -->
-    <!-- start explore -->
+</nav>
+
+    <?php include "top.php"?>
+<?php
+  
+        include"config.php";
+
+        $sql    ="SELECT*FROM products" ;
+
+        $result = mysqli_query($conn,$sql); 
+
+        if(mysqli_num_rows($result)>0){
+                
+            while ($row = mysqli_fetch_assoc($result)){
+        
+
+?>
+
     <div class="container">
-        <div class="row mt-5">
-            <div class="product-group">
-                <div class="row">
-
-                <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/thiensuvaembe5tuoi.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Thiền sư và em bé 5 tuổi</h5>
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
+ 
+                    <div class="box-3 float-container">
+                            <div class="card card-product mb-3">
+                                <img class="card-img-top" src="images/<?php echo $row['feature_image']; ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title product-title"><?php echo $row['pro_title']; ?></h5>
+                                    <a href="details.php?pro_id=<?php echo $row['pro_id'];  ?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
+                                </div>
+                            
                             </div>
-                        </div>
                     </div>
+    
+    </div>
+                    <?php
+            } //đóng while
+        } //đóng if
+                            ?>
 
-                <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/Tatden.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Tắt đèn</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/muonanduocan.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Muốn an được an</h5>
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/quenoi.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Quê nội</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/haisophan.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Hai số phận</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tinhlang.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Tĩnh Lặng</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/gian.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Giận</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="card card-product mb-3">
-                            <img class="card-img-top" src="images/tuyeu.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">Tự yêu</h5>                               
-                                <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-<br>
-                </div> <!--end row-->
-
-            </div> <!--end product-group-->
-            <br><br>
-    <?php include "footer.php" ?>
+</div>
+    <!-- end wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/bootstrap@5.0.2"></script>
+</body>
+</html>

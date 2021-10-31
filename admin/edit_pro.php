@@ -66,6 +66,7 @@ if(isset($_POST['btnEditPro']))
         $pro_cat      = $_POST['pro_cat'];
         $pro_quantity = $_POST['quantity'];
         $pro_code     = $_POST['pro_code'];
+        $pro_desc     = $_POST['pro_desc'];
 
 
         if(isset($_FILES['feature_image']['name']))

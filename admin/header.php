@@ -31,7 +31,7 @@
                                     <a class="nav-link" href="category.php"><i class="fas fa-user-shield"></i> Admin</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="cart.php"><i class="fas fa-book"></i> Sản phẩm</a>
+                                    <a class="nav-link" href="products.php"><i class="fas fa-book"></i> Sản phẩm</a>
                                 </li>
                             </ul>
                         </div>

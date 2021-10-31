@@ -203,5 +203,18 @@ legend{
 }
 
 img.card-img-top {
-    height: 350px;
+    height: 400px;
+}
+.my-details {
+    margin-left: 20%;
+    margin-bottom: 5%;
+    padding-bottom: 4%;
+}
+h3.chitiet {
+    margin-left: 5%;
+}
+.box-3{
+    width: 28%;
+    float: left;
+    margin: 2%;
 }
