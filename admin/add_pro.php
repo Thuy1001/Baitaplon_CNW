@@ -16,12 +16,10 @@
 
 <?php 
 
-            //CHeck whether the button is clicked or not
+            //Kiểm tra xem có nhấp vào "Thêm sản phẩm" không
             if(isset($_POST['btnAddPro']))
             {
-                //Add the Prodcuts in Database
-                //echo "Clicked";
-                
+              
                 //1.lấy dữ liệu từ form gọi lên
                 $pro_title    = $_POST['pro_title'];
                 $description  = $_POST['pro_desc'];
@@ -32,36 +30,33 @@
               
                
 
-                //2. Upload the Image if selected
+                //2. tải lên hình ảnh được chọn
                 
                 if(isset($_FILES['feature_image']['name']))
                 {
-                    //Get the details of the selected image
-                    $image_name = $_FILES['feature_image']['name'];
+                    //Nhận thông tin chi tiết của hình ảnh đã chọn
+                    $image_name  = $_FILES['feature_image']['name'];
+                    $starget_dir = "../images/"; //thư mục sẽ lưu ảnh
 
                     //Check Whether the Image is Selected or not and upload image only if selected
                     if($image_name!="")
                     {
-                        // Image is SElected
-                        //A. REnamge the Image
+                    
                        
-                        //B. Upload the Image
-                        //Get the Src Path and DEstinaton path
-
-                        // Source path is the current location of the image
+                        // đường dẫn nguồn vị trí hiện tại của ảnh -thư mục tạm
                         $src = $_FILES['feature_image']['tmp_name'];
 
-                        //Destination Path for the image to be uploaded
-                        $dst = "../images/".$image_name;
+                        //đường dẫn cho hình ảnh được tải lên               
+                        $starget_file =  $starget_dir.$image_name;
 
-                        //Finally Uppload the food image
-                        $upload = move_uploaded_file($src, $dst);
+                        //cập nhật hình ảnh
+                        $upload = move_uploaded_file($src, $starget_file );
 
-                        //check whether image uploaded of not
+                        //kiểm tra xem hình ảnh có được tải lên không
                         if($upload==false)
                         {
-                            //Failed to Upload the image
-                            //REdirect to Add Food Page with Error Message
+                            
+                            
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
                             header('location: admin/add_pro.php');
                             //STop the process
@@ -74,8 +69,8 @@
 
                 //3. Insert Into Database
 
-                //Create a SQL Query to Save or Add food
-                // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
+                //tạo câu lệnh truy vấn
+                
                 $sql2 = "INSERT INTO products SET 
                         pro_code      = '$pro_code',
                         pro_cat       = '$pro_cat',
@@ -85,11 +80,11 @@
                         feature_image = '$image_name',
                         quantity      = '$pro_quantity' ";
 
-                //Execute the Query
+                //thực thi
                 $result2 = mysqli_query($conn, $sql2);
 
-                //CHeck whether data inserted or not
-                //4. Redirect with MEssage to Manage Food page
+                
+                //4.kiểm tra
                 if($result2 == true)
                 {
                     header('location:'.SITEURL.'/admin/products.php');
@@ -122,24 +117,23 @@
                     <select name="category">
 
                             <?php 
-                                //Create PHP Code to display categories from Database
-                                //1. CReate SQL to get all active categories from database
-                                $sql = "SELECT * FROM categories";
+                                //hiển thị các danh mục từ Cơ sở dữ liệu
+                                //1. tạo truy vấn
+                                $sql    = "SELECT * FROM categories";
                                 
-                                //Executing qUery
+                                //thực thi
                                 $result = mysqli_query($conn, $sql);
 
-                                //Count Rows to check whether we have categories or not
-                                $count = mysqli_num_rows($result);
-
-                                //IF count is greater than zero, we have categories else we donot have categories
+                                //Đếm hàng để kiểm tra xem có category hay không
+                                $count  = mysqli_num_rows($result);
+                               
                                 if($count>0)
                                 {
                                     //WE have categories
                                     while($row=mysqli_fetch_assoc($result))
                                     {
-                                        //get the details of categories
-                                        $id = $row['cate_id'];
+                                        //lấy thông tin chi tiết của các loại
+                                        $id    = $row['cate_id'];
                                         $title = $row['cate_title'];
 
                                         ?>

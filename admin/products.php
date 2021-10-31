@@ -40,10 +40,7 @@
     <nav class="navbar ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Tất cả sản phẩm</a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>       -->
-
+            
             <?php 
                     if(isset($_SESSION['btnAdd']))
                     {
@@ -76,13 +73,13 @@
                 </thead>
             <tbody>
                 <?php 
-                     //Create a SQL Query to Get all the Food
+                     //SQL
                      $sql = "SELECT * FROM products";
 
-                     //Execute the qUery
+                     //thực thi sql
                      $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
 
-                     //Count Rows to check whether we have foods or not
+                     //Đếm hàng để kiểm tra xem chúng ta có product hay không
                      $count = mysqli_num_rows($result);
 
                      //Create Serial Number VAriable and Set Default VAlue as 1
@@ -90,11 +87,11 @@
 
                      if($count>0)
                         {
-                            //We have food in Database
-                            //Get the Foods from Database and Display
+                            //có product trên csdl
+                            //Lấy product từ Cơ sở dữ liệu và Hiển thị
                             while($row=mysqli_fetch_assoc($result))
                             {
-                                //get the values from individual columns                              
+                                //lấy các giá trị từ các cột                              
                                 $pro_id = $row['pro_id'];
                                 $pro_code = $row['pro_code'];
                                 $pro_title = $row['pro_title'];
@@ -135,8 +132,8 @@
                         }        
                         else
                         {
-                            //Food not Added in Database
-                            echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
+                            //không có product được thêm vào csdl
+                            echo "<tr> <td colspan='7' class='error'> Product not Added Yet. </td> </tr>";
                         }
                     ?>
                 

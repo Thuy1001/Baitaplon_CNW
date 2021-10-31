@@ -23,6 +23,9 @@
                         <a class="navbar-brand" href="index.php">BOOKSTORE</a>      
                         <div class="container1">
                             <ul class="nav justify-content-end">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Trang chủ</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php"><i class="fas fa-user"></i> Tài khoản</a>
                                 </li>

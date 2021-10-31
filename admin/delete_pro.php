@@ -1,32 +1,39 @@
+
+<?php 
+            if(isset($_SESSION['delete']))
+            {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+?>
+
 <?php 
     include "../admin/config.php";
    
 
     if(isset($_GET['pro_id']))
     {
-        //Process to Delete
-        //echo "Process to Delete";
-
-        //1.  Get ID
-        $pro_id = $_GET['pro_id'];
+       
         
-        //3. Delete prodcut from Database
-        $sql = "DELETE FROM products WHERE pro_id=$pro_id";
-        //Execute the Query
-        $result = mysqli_query($conn, $sql);
+        $pro_id   = $_GET['pro_id'];
+        
+        //tạo truy vấn sql
+        $sql      = "DELETE FROM products WHERE pro_id=$pro_id";
+        //thực thi
+        $result   = mysqli_query($conn, $sql);
 
-        //CHeck whether the query executed or not and set the session message respectively
-        //4. Redirect to Products with Session Message
+        //CKiểm tra xem truy vấn có được thực thi hay không
+        //4. Thông báo
         if($result==true)
         {
-            //Food Deleted
-            $_SESSION['delete'] = "<div class='success'>Food Deleted Successfully.</div>";
+            //xóa thành công
+            $_SESSION['delete'] = "<div class='success'>Xóa sản phẩm thành công</div>";
             header('location:../admin/products.php');
         }
         else
         {
-            //Failed to Delete Food
-            $_SESSION['delete'] = "<div class='error'>Failed to Delete Food.</div>";
+            //xóa thất bại
+            $_SESSION['delete'] = "<div class='error'>Xóa sản phẩm thất bại</div>";
             header('location:../admin/products.php');
         }
 
@@ -35,8 +42,8 @@
     }
     else
     {
-        //Redirect to Manage Food Page
-        //echo "REdirect";
+        //Chuyển hướng đến Trang Products
+        
         $_SESSION['unauthorize'] = "<div class='error'>Unauthorized Access.</div>";
         header('location:../admin/products.php');
     }

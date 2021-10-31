@@ -4,20 +4,20 @@
 
 
     <?php
-        //CHeck whether id is set or not 
+        
         if(isset($_GET['pro_id']))
         {
-            //Get all the details
+            
             $pro_id = $_GET['pro_id'];
 
             
-            //Create a SQL Query to Get all the Food
+            //câu lệnh truy vấn
             $sql = "SELECT * FROM products WHERE pro_id = '$pro_id'";
 
-            //Execute the qUery
+            //thực thi
             $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
 
-            //Count Rows to check whether we have foods or not
+          //Đếm hàng để kiểm tra xem chúng ta có product hay không
             $count = mysqli_num_rows($result);
 
             //Create Serial Number VAriable and Set Default VAlue as 1
@@ -25,20 +25,19 @@
 
             if($count>0)
                {
-                   //We have food in Database
-                   //Get the Foods from Database and Display
+                   //Lấy product từ Cơ sở dữ liệu và Hiển thị
                    while($row=mysqli_fetch_assoc($result))
                    {
-                       //get the values from individual columns                              
-                       $pro_id = $row['pro_id'];
-                       $pro_code = $row['pro_code'];
-                       $pro_title = $row['pro_title'];
-                       $pro_cat = $row['pro_cat'];
-                       $pro_price = $row['pro_price'];
-                       $pro_desc = $row['pro_desc'];
-                       $pro_quantity = $row['quantity'];
+                       //lấy các giá trị từ các cột                              
+                       $pro_id        = $row['pro_id'];
+                       $pro_code      = $row['pro_code'];
+                       $pro_title     = $row['pro_title'];
+                       $pro_cat       = $row['pro_cat'];
+                       $pro_price     = $row['pro_price'];
+                       $pro_desc      = $row['pro_desc'];
+                       $pro_quantity  = $row['quantity'];
                        $feature_image = $row['feature_image'];                 
-                       //$action                              
+                      
                    }
                   
                }
@@ -54,14 +53,12 @@
 
 <?php 
 
-//CHeck whether the button is clicked or not
+
 if(isset($_POST['btnEditPro']))
 {
 
-    //Add the Prodcuts in Database
-    //echo "Clicked";
     
-    //1. Get the DAta from Form
+    //1. nhận dữ liệu từ form
         $pro_id       = $_POST['pro_id'];
         $pro_title    = $_POST['pro_title'];
         $description  = $_POST['pro_desc'];
@@ -72,47 +69,43 @@ if(isset($_POST['btnEditPro']))
 
 
         if(isset($_FILES['feature_image']['name']))
+        {
+            //Nhận thông tin chi tiết của hình ảnh đã chọn
+            $feature_image = $_FILES['feature_image']['name'];
+            $starget_dir = "../images/"; //thư mục sẽ lưu ảnh
+
+            //Kiểm tra xem hình ảnh có được chọn hay không và chỉ tải lên hình ảnh nếu được chọn
+            if($feature_image!="")
+            {
+            
+               
+                // đường dẫn nguồn vị trí hiện tại của ảnh -thư mục tạm
+                $src = $_FILES['feature_image']['tmp_name'];
+
+                //đường dẫn cho hình ảnh được tải lên               
+                $starget_file =  $starget_dir.$feature_image;
+
+                //Finally Uppload the food image
+                $upload = move_uploaded_file($src, $starget_file );
+
+                //check whether image uploaded of not
+                if($upload==false)
                 {
-                    //Get the details of the selected image
-                    $feature_image = $_FILES['feature_image']['name'];
+                    //Failed to Upload the image
+                    
+                    $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
+                    header('location: admin/add_pro.php');
+                    //STop the process
+                    die();
+                } 
 
-                    //Check Whether the Image is Selected or not and upload image only if selected
-                    if($feature_image!="")
-                    {
-                        // Image is SElected
-                        //A. REnamge the Image
-                       
-                        //B. Upload the Image
-                        //Get the Src Path and DEstinaton path
+            }
 
-                        // Source path is the current location of the image
-                        $src = $_FILES['feature_image']['tmp_name'];
-
-                        //Destination Path for the image to be uploaded
-                        $dst = "../images/".$feature_image;
-
-                        //Finally Uppload the food image
-                        $upload = move_uploaded_file($src, $dst);
-
-                        //check whether image uploaded of not
-                        if($upload==false)
-                        {
-                            //Failed to Upload the image
-                            //REdirect to Add Food Page with Error Message
-                            $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
-                            header('location:../admin/add_pro.php');
-                            //STop the process
-                            die();
-                        } 
-
-                    }
-
-                }
+        }
 
     //. Insert Into Database
 
-    //Create a SQL Query to Save or Add food
-    // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
+    //Create a SQL
     $sql3 = "UPDATE products SET 
             pro_code      = '$pro_code',
             pro_title     = '$pro_title',
@@ -165,13 +158,13 @@ if(isset($_POST['btnEditPro']))
                                 <?php 
                                     //Create PHP Code to display categories from Database
                                     //1. CReate SQL to get all active categories from database
-                                    $sql = "SELECT * FROM categories";
+                                    $sql    = "SELECT * FROM categories";
                                     
                                     //Executing qUery
                                     $result = mysqli_query($conn, $sql);
 
                                     //Count Rows to check whether we have categories or not
-                                    $count = mysqli_num_rows($result);
+                                    $count  = mysqli_num_rows($result);
 
                                     //IF count is greater than zero, we have categories else we donot have categories
                                     if($count>0)
@@ -180,7 +173,7 @@ if(isset($_POST['btnEditPro']))
                                         while($row=mysqli_fetch_assoc($result))
                                         {
                                             //get the details of categories
-                                            $id = $row['cate_id'];
+                                            $id    = $row['cate_id'];
                                             $title = $row['cate_title'];
 
                                             ?>
