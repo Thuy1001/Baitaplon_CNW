@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 class="bg-light">Hệ thống quản lý nhân viên</h1>
     <div class="col-md-6  ">
         <ul class="nav justify-content-end">
                                 <li class="nav-item">
@@ -20,10 +19,13 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fas fa-user-shield"></i> Admin</a>
+                                    <a class="nav-link" href="index.php"><i class="fas fa-user-shield"></i> Admin</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="user.php"><i class="fas fa-user"></i> Người dùng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../account/loginadm.php"><i class="fas fa-sign-out-alt"></i> Thoát</a>
                                 </li>
                             </ul>
       </div>

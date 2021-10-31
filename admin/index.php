@@ -1,3 +1,7 @@
+<head>
+    <title>Quản lý admin</title>
+    <h1 class="bg-light">Hệ thống quản lý admin</h1>
+</head>
 <?php
     include 'header.php';
 ?>
