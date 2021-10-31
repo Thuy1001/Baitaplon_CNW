@@ -13,10 +13,7 @@
 
 <?php
   
-        // $conn = mysqli_connect('localhost','root','','bookstore');
-        // if(!$conn){
-        // die("Không thể kết nối");
-        //                         }
+       
         include"config.php";
 
         $sql="SELECT*FROM products" ;
