@@ -2,7 +2,7 @@
 
     //Include constants.php file here
     include 'header.php';
-    include 'config.php';
+    include '../config.php';
 
 
     // 1. get the ID of Admin to be deleted

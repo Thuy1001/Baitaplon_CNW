@@ -1,3 +1,7 @@
+<head>
+    <title>Quản lý admin</title>
+    <h1 class="bg-light">Hệ thống quản lý admin</h1>
+</head>
 <?php
     include 'header.php';
 ?>
@@ -23,7 +27,7 @@
                 <?php
                     // Quy trình 4 bước
                     // Bước 01: Đã tạo sẵn, gọi lại thôi
-                    include 'config.php';
+                    include '../config.php';
                     // Bước 02: Thực hiện TRUY VẤN
                     $sql = "SELECT*FROM admins";
                     $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
