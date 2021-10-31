@@ -1,107 +1,20 @@
 <?php include "../admin/header.php" ?>
-<?php include "../config.php" ?>
+<?php include "../admin/config.php" ?>
 <link rel="stylesheet" href="css/adm.css">
 
 
 <div class="container">
     <h2 class="admin-heading">Thêm sản phẩm mới</h2>
 
-    <?php 
-            if(isset($_SESSION['btnAdd']))
+<?php 
+            if(isset($_SESSION['Add']))
             {
-                echo $_SESSION['btnAdd'];
-                unset($_SESSION['btnAdd']);
+                echo $_SESSION['Add'];
+                unset($_SESSION['Add']);
             }
-        ?>
+?>
 
-    <form action="" id="createProduct" class="add-post-form row" method="post" enctype="multipart/form-data">
-            <div class="col-md-9">
-                <div class="form-group">
-                    <label for="">Product Title</label>
-                    <input type="text" class="form-control" name="pro_title" placeholder="Product Title" requried/>
-                </div>
-                <br>
-                <div class="form-groups">
-                    <label for="">Product Category</label>
-                    <select name="category">
-
-                            <?php 
-                                //Create PHP Code to display categories from Database
-                                //1. CReate SQL to get all active categories from database
-                                $sql = "SELECT * FROM categories";
-                                
-                                //Executing qUery
-                                $result = mysqli_query($conn, $sql);
-
-                                //Count Rows to check whether we have categories or not
-                                $count = mysqli_num_rows($result);
-
-                                //IF count is greater than zero, we have categories else we donot have categories
-                                if($count>0)
-                                {
-                                    //WE have categories
-                                    while($row=mysqli_fetch_assoc($result))
-                                    {
-                                        //get the details of categories
-                                        $id = $row['cate_id'];
-                                        $title = $row['cate_title'];
-
-                                        ?>
-
-                                        <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
-
-                                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                    //WE do not have category
-                                    ?>
-                                    <option value="0">No Category Found</option>
-                                    <?php
-                                }
-                            
-
-                                //2. Display on Drpopdown
-                            ?>
-
-                    </select>
-                </div>
-                <!-- end category -->
-                <br>
-                <div class="form-group">
-                    <label for="">Product Description</label>
-                    <textarea class="form-control" name="pro_desc" rows="8" cols="80" requried></textarea>
-                </div>
-                <!--<div class="show-error"></div>-->
-            </div>
-            <!-- end col md 9 -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="">Featured Image</label>
-                    <input type="file" class="pro_image" name="feature_image">
-                    <img id="image" src="" width="150px"/>
-                </div>
-                <div class="form-group">
-                    <label for="">Product Price</label>
-                    <input type="text" class="form-control" name="pro_price" requried value="">
-                </div>
-                <div class="form-group">
-                    <label for="">Quantity</label>
-                    <input type="number" class="form-control" name="quantity" requried value="">
-                </div>
-                <div class="form-group">
-                    <label for="">Product Code</label>
-                    <input type="text" class="form-control" name="pro_code" requried value="">
-                </div>
-                <br>
-                <form class="d-flex">
-                    <button class="btn btn-outline-success" type="submit" name="btnAddPro">Thêm sản phẩm</button>
-                </form>
-            </div>
-    </form>
-
-    <?php 
+<?php 
 
             //CHeck whether the button is clicked or not
             if(isset($_POST['btnAddPro']))
@@ -109,7 +22,7 @@
                 //Add the Prodcuts in Database
                 //echo "Clicked";
                 
-                //1. Get the DAta from Form
+                //1.lấy dữ liệu từ form gọi lên
                 $pro_title    = $_POST['pro_title'];
                 $description  = $_POST['pro_desc'];
                 $pro_price    = $_POST['pro_price'];
@@ -179,21 +92,112 @@
                 //4. Redirect with MEssage to Manage Food page
                 if($result2 == true)
                 {
+                    header('location:'.SITEURL.'/admin/products.php');
                     $_SESSION['Add'] = "<div class='error'>Food Added Successfully.</div>";
-                    header('location:../admin/products.php');
+                    
                 }
                 else
                 {
                     //FAiled to Insert Data
-                    $_SESSION['Add'] = "<div class='error'>Failed to Add Product.</div>";
-                    //header('location:'.SITEURL.'../admin/products.php');
                     header('location:../admin/products.php');
+                    $_SESSION['Add'] = "<div class='error'>Failed to Add Product.</div>";
+                    
+                   
                 }
 
                 
             }
 
-        ?>
+?>
+
+    <form action="" id="createProduct" class="add-post-form row" method="post" enctype="multipart/form-data">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="">Product Title</label>
+                    <input type="text" class="form-control" name="pro_title" placeholder="Product Title" requried value=""/>
+                </div>
+                <br>
+                <div class="form-groups">
+                    <label for="">Product Category</label>
+                    <select name="category">
+
+                            <?php 
+                                //Create PHP Code to display categories from Database
+                                //1. CReate SQL to get all active categories from database
+                                $sql = "SELECT * FROM categories";
+                                
+                                //Executing qUery
+                                $result = mysqli_query($conn, $sql);
+
+                                //Count Rows to check whether we have categories or not
+                                $count = mysqli_num_rows($result);
+
+                                //IF count is greater than zero, we have categories else we donot have categories
+                                if($count>0)
+                                {
+                                    //WE have categories
+                                    while($row=mysqli_fetch_assoc($result))
+                                    {
+                                        //get the details of categories
+                                        $id = $row['cate_id'];
+                                        $title = $row['cate_title'];
+
+                                        ?>
+
+                                        <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
+
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    //WE do not have category
+                                    ?>
+                                    <option value="0">No Category Found</option>
+                                    <?php
+                                }
+                            
+
+                                //2. Display on Drpopdown
+                            ?>
+
+                    </select>
+                </div>
+                <!-- end category -->
+                <br>
+                <div class="form-group">
+                    <label for="">Product Description</label>
+                    <textarea class="form-control" name="pro_desc" rows="8" cols="80" requried></textarea>
+                </div>
+                <!--<div class="show-error"></div>-->
+            </div>
+            <!-- end col md 9 -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="">Featured Image</label>
+                    <input type="file" class="pro_image" requried name="feature_image">
+                    <img id="image" src="" width="150px"/>
+                </div>
+                <div class="form-group">
+                    <label for="">Product Price</label>
+                    <input type="text" class="form-control" name="pro_price" requried value="">
+                </div>
+                <div class="form-group">
+                    <label for="">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" requried value="">
+                </div>
+                <div class="form-group">
+                    <label for="">Product Code</label>
+                    <input type="text" class="form-control" name="pro_code" requried value="">
+                </div>
+                <br>
+                <form class="d-flex">
+                    <button class="btn btn-outline-success" type="submit" name="btnAddPro">Thêm sản phẩm</button>
+                </form>
+            </div>
+    </form>
+
+
 
 </div> <!--end container-->
 

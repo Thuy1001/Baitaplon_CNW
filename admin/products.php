@@ -103,8 +103,9 @@
                                 $pro_desc = $row['pro_desc'];
                                 $pro_quantity = $row['quantity'];
                                 $image_name = $row['feature_image'];                 
-                                //$action                              
-                                 ?>
+                            
+                        
+                ?>
                 
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
@@ -123,25 +124,29 @@
                                     </td>
                                     
                                     <td>
-                                            <a href="<?php echo SITEURL; ?>admin/edit_pro.php?id=<?php echo $pro_id;  ?>"><i class="fa fa-edit"></i></a>
+                                            <a href="<?php echo SITEURL; ?>admin/edit_pro.php?pro_id=<?php echo $pro_id;  ?>"><i class="fa fa-edit"></i></a>
                                            
-                                            <a href="<?php echo SITEURL; ?>admin/delete_pro.php?id=<?php echo $pro_id; ?>"><i class="fa fa-trash"></i></a>
+                                            <a href="<?php echo SITEURL; ?>admin/delete_pro.php?pro_id=<?php echo $pro_id; ?>"><i class="fa fa-trash"></i></a>
                                             
                                     </td>   
                                 </tr>
-                
-            </tbody>
-        </div> <!--table-responsive-->
-        <?php
-                            }
-                        }
+                    <?php  
+                            }  
+                        }        
                         else
                         {
                             //Food not Added in Database
                             echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
                         }
-
                     ?>
+                
+            </tbody>
+       
+                        
+       
+                          
+             
+         </div> <!--table-responsive-->
     </table>
     <!-- end table -->
 
