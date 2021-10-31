@@ -17,14 +17,14 @@
 
           <label>Name</label>
           <?php if (isset($_GET['name'])) { ?>
-               <input type="name" 
+               <input type="text" 
                       name="name" 
-                      placeholder="name"
+                      placeholder="Name"
                       value="<?php echo $_GET['name']; ?>"><br>
           <?php }else{ ?>
-               <input type="name" 
+               <input type="text" 
                       name="name" 
-                      placeholder="name"><br>
+                      placeholder="Name"><br>
           <?php }?>
 
           <label>User Name</label>

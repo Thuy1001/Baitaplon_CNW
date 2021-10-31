@@ -1,9 +1,9 @@
 <?php 
 session_start(); 
-include "db_conn.php";
+include "../config.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])
-    && isset($_POST['name']) && isset($_POST['re_password'])) {
+    && isset($_POST['name'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -17,8 +17,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 
 	$re_pass = validate($_POST['re_password']);
 	$name = validate($_POST['name']);
+	
 
-	$user_data = 'uname='. $uname. '&name='. $name;
+	$user_data = 'uname='. $uname.'&name='.$name;
 
 
 	if (empty($uname)) {
@@ -33,11 +34,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	    exit();
 	}
 
-	else if(empty($name)){
-        header("Location: register.php?error=Name is required&$user_data");
-	    exit();
-	}
-
+	
 	else if($pass !== $re_pass){
         header("Location: register.php?error=The confirmation password  does not match&$user_data");
 	    exit();
@@ -55,7 +52,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: resgister.php?error=The username is taken try another&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO users(user_name, user_email,user_pass) VALUES('$uname','$email; '$pass')";
+			$sql2 = "INSERT INTO user(user_name, password, name) VALUES('$uname', '$pass', '$name')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
            	 header("Location: register.php?success=Your account has been created successfully");
