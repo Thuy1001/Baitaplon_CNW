@@ -21,10 +21,9 @@
             
                 <?php
                     include 'config.php';
-                    // Bước 02: Thực hiện TRUY VẤN
+                  
                     $sql = "SELECT*FROM user";
-                    $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
-                    // Bước 03: Phân tích và xử lý kết quả
+                    $result = mysqli_query($conn,$sql); 
                     if(mysqli_num_rows($result)>0){
                        while($row=mysqli_fetch_assoc($result)){
                            echo '<tr>';
@@ -32,15 +31,11 @@
                            echo '<td>'.$row['user_name'].'</td>';
                            echo '<td>'.$row['password'].'</td>';
                            echo '<td>'.$row['name'].'</td>';
-                          // echo'<td><a href="index.php">Chi tiết</a></td>';
                            echo '<td><a href="useredit.php?id='.$row['id'].'"><i class="fas fa-user-edit"></i></a></td>';
-                          //echo '<td><a href="layout.php?id='.$row['id'].'"><i class="fas fa-user-times"></i></a></td>';
                            echo '</tr>';
                        }
                     }
                 ?>
-                
-                <!-- Đoạn này thay đổi theo Dữ liệu trong CSDL -->
             </tbody>
             </table>
     </main>
