@@ -15,10 +15,10 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 	$adpass = validate($_POST['ad_pass']);
 
 	if (empty($adname)) {
-		header("Location:loginadm.php?error=User Name is required");
+		header("Location:index.php?error=User Name is required");
 	    exit();
 	}else if(empty($adpass)){
-        header("Location:loginadm.php?error=Password is required");
+        header("Location:index.php?error=Password is required");
 	    exit();
 	}else{
 		// hashing the password
@@ -39,17 +39,17 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
             	header("Location:adm.php");
 		        exit();
             }else{
-				header("Location:adm.php?error=Incorect User name or password");
+				header("Location:index.php?error=Incorect User name or password");
 		        exit();
 			}
 		}else{
-			header("Location:adm.php?error=Incorect User name or password");
+			header("Location:index.php?error=Incorect User name or password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: loginadm.php");
+	header("Location:index.php");
 	exit();
 }
 ?>
