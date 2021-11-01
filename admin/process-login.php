@@ -36,14 +36,14 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
             	$_SESSION['ad_email'] = $row['ad_email'];
                 $_SESSION['ad_phone'] = $row['ad_phone'];
             	$_SESSION['ad_id'] = $row['ad_id'];
-            	header("Location:../admin/index.php");
+            	header("Location:adm.php");
 		        exit();
             }else{
-				header("Location:../admin/index.php?error=Incorect User name or password");
+				header("Location:adm.php?error=Incorect User name or password");
 		        exit();
 			}
 		}else{
-			header("Location:admin/index.php?error=Incorect User name or password");
+			header("Location:adm.php?error=Incorect User name or password");
 	        exit();
 		}
 	}
