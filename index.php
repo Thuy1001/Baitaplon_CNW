@@ -1,22 +1,13 @@
 <?php include "header.php" ?>
-<style>
-    .products{
-    width: 100%;
-	margin-left: 5px;
-	margin-right: 5px;
-	overflow: hidden;	
-    position: relative;
-    }
-    .card-img-top{
-        height: 350px;
-    }
-    </style>                
+<?php include "config.php";?>
+<link rel="stylesheet" href="css/style.css">
+
 <!-- search -->
 <nav class="navbar navbar-light bg-img">
         <div class="container-fluid">
-            <form class="d-flex mx-auto col-md-6" method="get" action="search.php">
-                <input name ="search" class="form-control me-2" type="search" placeholder="Search for Book.." aria-label="Search">
-                <button class ="btn btn-outline-success" type="submit" name="ok">Search </buton>
+            <form class="d-flex mx-auto col-md-6"id="search"  action=""method="GET">
+                <input  type="text"value=""name ="search" class="form-control me-2" placeholder="Search for Book.." aria-label="Search">
+                <input class ="btn btn-outline-success" type="submit" value="Search">
                 
             </form>     
         </div>
@@ -24,45 +15,74 @@
     </nav>
 
     <?php include "top.php"?>
-    <!-- start explore -->
-    <div class="container-fluid my-explore">
-        <h1 class="row justify-content-md-center">Sách mới nhất</h1>
-        <div class="row row1 my-row">
-            <div class="col-md-4">
-            </div>
-            <div class="row">
-					<div class="products">
-	<?php
-  
-  $conn = mysqli_connect('localhost','root','','bookstore');
-  if(!$conn){
-    die("Không thể kết nối");
-                         }
-  $sql="SELECT*FROM products" ;
-  $result = mysqli_query($conn,$sql); 
-  if(mysqli_num_rows($result)>0){
+<?php
+  $search=isset($_GET['search'])?$_GET['search']:"";
+  if($search){
+      $where="WHERE `pro_title` LIKE '%".$search."%'";
+  }
+       
+if($search){
+    
+    $sql= mysqli_query($conn,"SELECT*FROM products WHERE `pro_title` LIKE '%".$search."%' ORDER BY `pro_title` ASC") ;
+    $result = mysqli_query($conn,"SELECT * FROM products WHERE `pro_title` LIKE '%".$search."%'"); 
+}else{
+    
+    $sql= mysqli_query($conn,"SELECT*FROM products  ORDER BY 'pro_id'  ASC") ;
+    $result = mysqli_query($conn,"SELECT * FROM products");
+
+}
+
+        if(mysqli_num_rows($result)>0){
+                
+            while ($row = mysqli_fetch_assoc($result)){
         
-  while ($row = mysqli_fetch_assoc($result)){
- 
 
-    ?>
-      
-    <div class="row">
-               <div class="col-md-3 col-sm-6 col-12">
-                    <div class="card card-product mb-3">
-                        <img class="card-img-top" src="<?php echo $row['feature_image']?>" alt="Card image cap"width:40%>
-                        </div>
-                        <div name = "product" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></div>
+?>
+
+    <div class="container">
+        <!-- <div class="row mt-5">
+            <div class="product-group"> -->
+                <!-- <div class="row"> -->
+
+                    <div class="box-3 float-container">
+                            <div class="card card-product mb-3">
+                                <img class="card-img-top" src="<?php echo $row['feature_image']; ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title product-title"><?php echo $row['pro_title']; ?></h5>
+                                    <a href ="#" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="detail.php?pro_id=<?php echo $row['pro_id'];?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
+                                </div>
                             
-                       <div class="col-md-4">
-                        <p><?php echo $row['pro_title']?></p>
-                        <p><?php echo $row['pro_price']?></p>
-                        </div>
-                        </div>
+                            </div>
+                    </div>
+    </div>
+                    <?php
+            } //đóng while
+        } //đóng if
+                            ?>
+</div>
 
-                        <?php
-                        }
-                    }
-                ?>
-    <!-- end explore -->
-    <?php include "footer.php" ?>
+<!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12 social text-center letf">
+                <ul>
+                    <li>
+                    <li><i class="fab fa-facebook"></i><span>: BookStore</span></li>
+                    </li>
+                    <li>
+                    <i class="fa fa-phone" ></i><span>: 0376533018</span>
+                    </li>
+                    <li>
+                    <i class="fa fa-envelope" ></i><span>: phamhongthang201@gmail.com</span>
+                    </li>
+                </ul>
+            </div> end col-->
+        <!-- </div> end row -->
+    <!-- </div> 
+    end container-fluid --> 
+
+
+
+</body>
+<div class="clearfix"></div>
+<?php include "footer.php"?>
