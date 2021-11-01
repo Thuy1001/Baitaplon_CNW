@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +13,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+  <div id="admin-header center">
+                    <div class="col-md-offset-8 col-md-2">
+                        <div class="dropdown">
+                            <a href="" class="dropdown-toggle logout" data-toggle="dropdown">
+                                <?php
+                                if(!session_id()){
+                                    session_start();
+                                }
+                                echo 'Hi '.$_SESSION['ad_name']; ?>
+                                <span class="caret"></span></a>
+                        </div>
+                    </div>
     <div class="col-md-6  ">
         <ul class="nav justify-content-end">
                                 <li class="nav-item">
@@ -19,7 +32,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.php"><i class="fas fa-user-shield"></i> Admin</a>
+                                    <a class="nav-link" href="../account/loginadm.php"><i class="fas fa-user-shield"></i> Admin</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="user.php"><i class="fas fa-user"></i> Người dùng</a>
