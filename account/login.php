@@ -38,11 +38,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	header("Location: ../bookstores/index.php");
 		        exit();
             }else{
-				header("Location: ../bookstores/index.php?error=Incorect User name or password");
+				header("Location:index.php?error=Incorect User name or password");
 		        exit();
 			}
 		}else{
-			header("Location:../bookstores/index.php?error=Incorect User name or password");
+			header("Location:index.php?error=Incorect User name or password");
 	        exit();
 		}
 	}
