@@ -45,8 +45,7 @@
          }
         else
         {   echo 'LỖI RỒI :)';
-            
-            //header('location:'.SITEURL.'admin/products.php');
+          
         }
         
     ?>
@@ -124,14 +123,13 @@ if(isset($_POST['btnEditPro']))
     //4. Redirect with MEssage to Manage Food page
     if($result3 == true)
     {
-        $_SESSION['Add'] = "<div class='error'>Food Added Successfully.</div>";
+        $_SESSION['Add'] = "<div class='error'>Cập nhật sản phẩm thành công</div>";
         header('location:../admin/products.php');
     }
     else
     {
         //FAiled to Insert Data
-        $_SESSION['Add'] = "<div class='error'>Failed to Add Product.</div>";
-        //header('location:'.SITEURL.'../admin/products.php');
+        $_SESSION['Add'] = "<div class='error'>Cập nhật sản phẩm thất bại</div>";
         header('location:../admin/products.php');
     }
 
@@ -157,17 +155,16 @@ if(isset($_POST['btnEditPro']))
                         <select name="pro_cat" value="<?php echo $pro_cat; ?>">
 
                                 <?php 
-                                    //Create PHP Code to display categories from Database
-                                    //1. CReate SQL to get all active categories from database
+                                   
+                                    //1. CReate SQL 
                                     $sql    = "SELECT * FROM categories";
                                     
                                     //Executing qUery
                                     $result = mysqli_query($conn, $sql);
 
-                                    //Count Rows to check whether we have categories or not
+                                    // Đếm hàng để kiểm tra xem chúng ta có categories hay không
                                     $count  = mysqli_num_rows($result);
-
-                                    //IF count is greater than zero, we have categories else we donot have categories
+                               
                                     if($count>0)
                                     {
                                         //WE have categories
@@ -186,14 +183,14 @@ if(isset($_POST['btnEditPro']))
                                     }
                                     else
                                     {
-                                        //WE do not have category
+                                    
                                         ?>
                                         <option value="0">No Category Found</option>
                                         <?php
                                     }
                                 
 
-                                    //2. Display on Drpopdown
+                                  
                                 ?>
 
                         </select>
@@ -204,7 +201,7 @@ if(isset($_POST['btnEditPro']))
                         <label for="">Product Description</label>
                         <textarea class="form-control" name="pro_desc" rows="8" cols="80" requried><?php echo  $pro_desc; ?></textarea>
                     </div>
-                    <!--<div class="show-error"></div>-->
+                    
                 </div>
                 <!-- end col md 9 -->
                 <div class="col-md-3">

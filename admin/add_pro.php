@@ -87,15 +87,15 @@
                 //4.kiểm tra
                 if($result2 == true)
                 {
-                    header('location:'.SITEURL.'/admin/products.php');
-                    $_SESSION['Add'] = "<div class='error'>Food Added Successfully.</div>";
+                    header('location:'.SITEURL.'admin/products.php');
+                    $_SESSION['Add'] = "<div class='error'>Thêm sản phẩm thành công.</div>";
                     
                 }
                 else
                 {
                     //FAiled to Insert Data
                     header('location:../admin/products.php');
-                    $_SESSION['Add'] = "<div class='error'>Failed to Add Product.</div>";
+                    $_SESSION['Add'] = "<div class='error'>Thêm sản phẩm thất bại.</div>";
                     
                    
                 }

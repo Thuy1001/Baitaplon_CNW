@@ -148,5 +148,6 @@
     <!-- end table -->
 
 </div> <!--end container-->
+<div class="clearfix"></div>
 
 <?php include "../footer.php" ?>

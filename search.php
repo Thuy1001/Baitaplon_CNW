@@ -1,16 +1,17 @@
-<?php include "header.php" ?>
+
+
+    <?php include "header.php" ?>
 <?php include "config.php"?>
 
 <?php
         
-        if(isset($_GET['pro_id']))
-        {
-            
-            $pro_id = $_GET['pro_id'];
-
+        if(isset($_GET['keyword'])){
+            $sql="SELECT pro_title, pro_price, feature_image FROM products WHERE pro_status and pro_title like '%".$_GET['keyword']."%'";
+            $result=$conn->query($query);
+        
             
             //câu lệnh truy vấn
-            $sql = "SELECT pro_title, pro_price, pro_desc, feature_image FROM products WHERE pro_id = '$pro_id'";
+           // $sql = "SELECT pro_title, pro_price, pro_desc, feature_image FROM products WHERE pro_id = '$pro_id'";
 
             //thực thi
             $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
@@ -29,9 +30,8 @@
                        //lấy các giá trị từ các cột                              
                        
                        
-                       $pro_title     = $row['pro_title'];
-                       $pro_price = $row['pro_price'];
-                       $pro_desc      = $row['pro_desc'];                    
+                       $pro_title     = $row['pro_title']; 
+                       $pro_price     =$row['pro_price'];                        
                        $feature_image = $row['feature_image'];                 
                       
                    }
@@ -47,20 +47,21 @@
         
     ?>
 
-    <h3 class="chitiet">Chi tiết sản phẩm</h3>
+    <h3 class="chitiet">Kết quả tìm kiếm</h3>
     <div class = "container my-details">
         <div class="card mb-3" style="max-width: 950px;">
             <div class="row g-0">
                 
                     <div class="col-md-4">
-                    <img src="images/<?php echo $feature_image ?>" class="img-fluid rounded-start" alt="...">
+                    <img src="images/<?php echo $feature_image?>" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             
                             <h5 class="card-title">Tên sách: <?php echo $pro_title ?></h5>
-                            <p class="card-text"><?php echo $pro_desc?></p>
-                           <h6 class="card-text">Giá sản phẩm: <?php echo $pro_price?> VNĐ</h6>
+                            
+                            <p class="card-price"><?php echo $pro_price?></p>
+                           
                             
                         </div>
                     </div>
@@ -72,3 +73,13 @@
 
         <br><br>
             <?php include 'footer.php'; ?>
+
+
+      
+       
+       
+      
+     
+
+    
+           

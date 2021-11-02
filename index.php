@@ -1,5 +1,5 @@
 <?php include "header.php" ?>
-<link rel="stylesheet" href="css/style.css">
+
 
 <!-- search -->
 <nav class="navbar navbar-light bg-img">
@@ -36,6 +36,7 @@
                                 <img class="card-img-top" src="images/<?php echo $row['feature_image']; ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title product-title"><?php echo $row['pro_title']; ?></h5>
+                                    <a href ="#" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
                                     <a href="details.php?pro_id=<?php echo $row['pro_id'];  ?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
                                 </div>
                             
@@ -47,12 +48,7 @@
             } //đóng while
         } //đóng if
                             ?>
+                            
+            <div class="clearfix"></div>
 
-</div>
-    <!-- end wrapper -->
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="bootstrap/bootstrap@5.0.2"></script>
-</body>
-</html>
+<?php include "footer.php"?>
