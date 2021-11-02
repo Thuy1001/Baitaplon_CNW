@@ -4,6 +4,15 @@
 ?>
 
     <main>
+    <div class="col-md-offset-8 col-md-2">
+                        <div class="dropdown">
+                            <a href="" class="dropdown-toggle logout" data-toggle="dropdown">
+                                <?php
+                                if(!session_id()){
+                                    session_start();
+                                }
+                                echo 'Hi '.$_SESSION['ad_name']; ?>
+                                <span class="caret"></span></a>
         <!-- Hiển thị BẢNG DỮ LIỆU DANH BẠ CÁ NHÂN -->
         <!-- Kết nối tới Server, truy vấn dữ liệu (SELECT) từ Bảng db_employees -->
         <!-- Quy trình 4 bước -->
