@@ -92,14 +92,14 @@
                             while($row=mysqli_fetch_assoc($result))
                             {
                                 //lấy các giá trị từ các cột                              
-                                $pro_id = $row['pro_id'];
-                                $pro_code = $row['pro_code'];
-                                $pro_title = $row['pro_title'];
-                                $pro_cat = $row['pro_cat'];
-                                $pro_price = $row['pro_price'];
-                                $pro_desc = $row['pro_desc'];
+                                $pro_id       = $row['pro_id'];
+                                $pro_code     = $row['pro_code'];
+                                $pro_title    = $row['pro_title'];
+                                $pro_cat      = $row['pro_cat'];
+                                $pro_price    = $row['pro_price'];
+                                $pro_desc     = $row['pro_desc'];
                                 $pro_quantity = $row['quantity'];
-                                $image_name = $row['feature_image'];                 
+                                $image_name   = $row['feature_image'];                 
                             
                         
                 ?>

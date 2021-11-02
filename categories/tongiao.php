@@ -1,26 +1,21 @@
 
+
+
+<!-- header -->
+
 <?php 
       $conn=mysqli_connect('localhost','root','','bookstore');
       if(!$conn){
           die("không thể kết nối");
       }
 
-    $sql="SELECT *FROM categories";
+    $sql="SELECT * FROM categories";
 
     $res= mysqli_query($conn, $sql);
 
     $count = mysqli_num_rows($res);
 
-    if($count >0){
-            while ($row=mysqli_fetch_assoc($res)){
-                $cate_id    = $row['cate_id'];
-                $cate_title = $row['cate_title'];
-               
-            }
-        }
-     
-    echo '$cate_id';
-    
+  
 ?>
 
 <!DOCTYPE html>
@@ -54,18 +49,27 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php"><i class="fas fa-user"></i> Tài khoản</a>
                                 </li>
-
+                
                                 <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="fas fa-book"></i>Thể loại
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a href="../baitaplon/categories/tongiao.php?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#">Tôn giáo</a></li>
-                                                <li><a href="../categories/truyenngan.php?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#">Truyện ngắn</a></li>                             
-                                                
+                                         
+                                            <?php
+                                                if($count >0){
+                                                        while ($row=mysqli_fetch_assoc($res)){
+                                                            
+                                                                $cate_id    = $row['cate_id']; 
+                                                                $cate_title = $row['cate_title'];
+                                                                $url        = $row['cate_url'];
+
+                                            ?>
+                                                <li><a href="../categories/<?php echo $url ?>?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#"><?php echo $cate_title ?></a></li>
+                                               <?php }} ?>
                                             </ul>
                                 </li>
-
+              
                                 
                                 <li class="nav-item">
                                     <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
@@ -88,6 +92,9 @@
         <!-- end contaier-fluid -->
 
 
+<!-- end header -->
+
+
 <nav class="navbar navbar-light bg-img">
         <div class="container-fluid">
             <form class="d-flex mx-auto col-md-6">
@@ -98,6 +105,10 @@
         <!-- end container-fluid -->
 </nav>
     <!-- end nav search -->
+
+    
+
+
     <?php include"../config.php";?>
 <?php
  if(isset($_GET['cate_id'])){
@@ -125,11 +136,11 @@
 
 
         while($row=mysqli_fetch_assoc($result)){
-            $pro_cat = $row['pro_cat'];
-            $pro_title = $row['pro_title'];
-            $pro_price = $row['pro_price'];
+            $pro_cat       = $row['pro_cat'];
+            $pro_title     = $row['pro_title'];
+            $pro_price     = $row['pro_price'];
             $feature_image = $row['feature_image'];
-            $cate_id = $row['cate_id'];
+            $cate_id       = $row['cate_id'];
             ?>
             <!-- <div class="container">
                 <div class="row mt-5">
@@ -138,14 +149,13 @@
                         <div class="row"> -->
 
                 <div class="container">
- 
                     <div class="box-3 float-container">
                             <div class="card card-product mb-3">
                                 <img class="card-img-top" src="../images/<?php echo $feature_image; ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title product-title"><?php echo $pro_title; ?></h5>
                                     <div class="card-text product-price">
-                                                <span class="del-price"><?php echo $pro_price ?>vnd</span>
+                                                <span class="del-price"><?php echo $pro_price ?> vnđ</span>
                                     </div>
                                     <a href ="#" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
                                     <a href="../details.php?pro_id=<?php echo $row['pro_id'];  ?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
@@ -154,24 +164,6 @@
                             </div>
                     </div>
                 </div>
-<!-- 
-                            <div class="col-md-3 col-sm-6 col-12">
-                                    <div class="card card-product mb-3">
-                                        <img class="card-img-top" src="../images/<?php //echo $feature_image ?>" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title product-title"><?php //echo $pro_title ?></h5>
-                                            <div class="card-text product-price">
-                                                <span class="del-price"><?php //echo $pro_price ?>vnd</span>
-                                            </div>
-                                            <a class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-                                            <a class="btn btn-outline-info btn-detail">Xem chi tiết</a>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div> <!--end row-->
-                    <!-- </div> end product-group -->
-                <!-- </div> end row -->
-            <!-- </div> end container --> 
 
 <?php
 

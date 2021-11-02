@@ -11,14 +11,7 @@
 
     $count = mysqli_num_rows($res);
 
-    if($count >0){
-            while ($row=mysqli_fetch_assoc($res)){
-                
-                $cate_id    = $row['cate_id'];
-                $cate_title = $row['cate_title'];
-            }
-    }
-    
+  
 ?>
 
 <!DOCTYPE html>
@@ -52,18 +45,27 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php"><i class="fas fa-user"></i> Tài khoản</a>
                                 </li>
-
+                
                                 <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="fas fa-book"></i>Thể loại
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a href="../baitaplon/categories/tongiao.php?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#">Tôn giáo</a></li>
-                                                <li><a href="../baitaplon/categories/truyenngan.php?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#">Truyện ngắn</a></li>                             
-                                                
+                                         
+                                            <?php
+                                                if($count >0){
+                                                        while ($row=mysqli_fetch_assoc($res)){
+                                                            
+                                                                $cate_id    = $row['cate_id']; 
+                                                                $cate_title = $row['cate_title'];
+                                                                $url        = $row['cate_url'];
+
+                                            ?>
+                                                <li><a href="categories/<?php echo $url ?>?cate_id=<?php echo $cate_id ?>" class="dropdown-item nav-link" href="#"><?php echo $cate_title ?></a></li>
+                                               <?php }} ?>
                                             </ul>
                                 </li>
-
+              
                                 
                                 <li class="nav-item">
                                     <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
