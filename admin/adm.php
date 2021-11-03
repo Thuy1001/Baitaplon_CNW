@@ -1,9 +1,14 @@
+
 <?php
     include 'header.php';
     
 ?>
-
+<head>
+    <title>Quản lý Admin</title>
+    <h1 class="bg-light" style="margin-left: 10%;">Hệ thống quản lý Admin</h1>
+</head>
     <main>
+    <div class="container">
     <div class="col-md-offset-8 col-md-2">
                         <div class="dropdown">
                             <a href="" class="dropdown-toggle logout" data-toggle="dropdown">
@@ -13,11 +18,13 @@
                                 }
                                 echo 'Hi '.$_SESSION['ad_name']; ?>
                                 <span class="caret"></span></a>
+                        </div>
+    </div>
         <!-- Hiển thị BẢNG DỮ LIỆU DANH BẠ CÁ NHÂN -->
         <!-- Kết nối tới Server, truy vấn dữ liệu (SELECT) từ Bảng db_employees -->
         <!-- Quy trình 4 bước -->
         <a href="addadmin.php" class="btn btn-success"><i class="fas fa-user-plus"></i> Thêm Nhân viên</a>
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                 <th scope="col">STT</th>
@@ -26,14 +33,15 @@
                     <th scope="col">Email</th>
                     <th scope="col">Số điện thoại</th>
                     <th scope="col">Địa chỉ</th>
+                    <th scope="col">Chỉnh sửa</th>
+                    <th scope="col">Xóa</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Đoạn này thay đổi theo Dữ liệu trong CSDL -->
-                <?php
-                    // Quy trình 4 bước
-                    // Bước 01: Đã tạo sẵn, gọi lại thôi
-                    include '../config.php';
+                <?php 
+                  include 'config1.php';
+                 
                     // Bước 02: Thực hiện TRUY VẤN
                     $sql = "SELECT*FROM admins";
                     $result = mysqli_query($conn,$sql); //Lưu kết quả trả về vào result
@@ -47,7 +55,6 @@
                            echo '<td>'.$row['ad_email'].'</td>';
                            echo '<td>'.$row['ad_phone'].'</td>';
                            echo '<td>'.$row['ad_address'].'</td>';
-                          // echo'<td><a href="index.php">Chi tiết</a></td>';
                            echo '<td><a href="editadmin.php?id='.$row['ad_id'].'"><i class="fas fa-user-edit"></i></a></td>';
                            echo '<td><a href="deleteadmin.php?id='.$row['ad_id'].'"><i class="fas fa-user-times"></i></a></td>';
                            echo '</tr>';
@@ -58,6 +65,7 @@
                 <!-- Đoạn này thay đổi theo Dữ liệu trong CSDL -->
             </tbody>
             </table>
+    </div>
     </main>
     
 <?php

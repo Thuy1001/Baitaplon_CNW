@@ -1,6 +1,7 @@
+
 <?php 
 session_start(); 
-include "../config.php";
+include "config1.php";
 
 if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 
@@ -49,7 +50,7 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 	}
 	
 }else{
-	header("Location:index.php");
+	header("Location:adm.php");
 	exit();
 }
 ?>

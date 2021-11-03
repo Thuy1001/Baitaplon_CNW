@@ -1,8 +1,9 @@
 
 <?php
-    include 'config.php';
+    include 'config1.php';
     include 'header.php';
 ?>
+
 
     <main class="container">
         <h2>Thêm thông tin </h2>

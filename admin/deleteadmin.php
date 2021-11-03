@@ -1,9 +1,7 @@
 <?php 
-
     //Include constants.php file here
     include 'header.php';
-    include 'config.php';
-
+    include 'config1.php';
 
     // 1. get the ID of Admin to be deleted
     $id = $_GET['id'];
@@ -16,11 +14,10 @@
  
     // Check whether the query executed successfully or not
     if($res > 0){
-        header("Location:index.php");
+        header("Location:adm.php");
     }else{
         echo "Lỗi!";
     }
-    
-    include '../footer.php';
+    include 'footer.php';
     
 ?>

@@ -6,7 +6,7 @@
     $ad_phone = $_POST['adphone'];
     $ad_address = $_POST['adaddress'];
     
-   include 'config.php';
+   include 'config1.php';
 
     // Bước 02:
     //$pass_hash=md5($ad_pass,PASSWORD_DEFAULT);
@@ -17,7 +17,7 @@
     $result = mysqli_query($conn,$sql);
     // Bước 03:
     if($result > 0){
-        header("Location:index.php");
+        header("Location:adm.php");
     }else{
         echo "Lỗi!";
     }
