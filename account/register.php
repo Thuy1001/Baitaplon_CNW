@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SIGN UP</title>
+	<title>Đăng Ký</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
                <p class="success"><?php echo $_GET['success']; ?></p>
           <?php } ?>
 
-          <label>Name</label>
+          <label>Họ Tên</label>
           <?php if (isset($_GET['name'])) { ?>
                <input type="text" 
                       name="name" 
@@ -27,7 +27,7 @@
                       placeholder="Name"><br>
           <?php }?>
 
-          <label>User Name</label>
+          <label>Tên người dùng</label>
           <?php if (isset($_GET['uname'])) { ?>
                <input type="text" 
                       name="uname" 
@@ -40,18 +40,18 @@
           <?php }?>
 
 
-     	<label>Password</label>
+     	<label>Mật khẩu</label>
      	<input type="password" 
                  name="password" 
                  placeholder="Password"><br>
 
-          <label>Re Password</label>
+          <label>Nhập lại mật khẩu</label>
           <input type="password" 
                  name="re_password" 
                  placeholder="Re_Password"><br>
 
-     	<button type="submit">Sign Up</button>
-          <a href="index.php" class="ca">Already have an account?</a>
+     	<button type="submit">Đăng ký</button>
+          <a href="index.php" class="ca">Bạn chưa có tài khoản?</a>
      </form>
 </body>
 </html>
