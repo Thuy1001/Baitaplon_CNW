@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,19 +27,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Trang chủ</a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Bảng điều khiển</a>
+                                    <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Bảng điều khiển</a>
                                 </li>
+  
                                 <li class="nav-item">
                                     <a class="nav-link" href="products.php"><i class="fas fa-book"></i> Sản phẩm</a>
+                                </li> 
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="adm.php"><i class="fas fa-user-shield"></i> Admin</a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="user.php"><i class="fas fa-user"></i> Người dùng</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="adm.php"><i class="fas fa-user-shield"></i>Admin</a>
-                                </li>
+   
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php"><i class="fas fa-sign-out-alt"></i> Thoát</a>
                                 </li>

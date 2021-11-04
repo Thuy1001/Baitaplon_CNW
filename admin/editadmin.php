@@ -1,6 +1,7 @@
 <?php
     include 'header.php';
-    include 'config1.php';
+    include 'config.php';
+
     $id = $_GET['id'];
 
     //2. Create SQL Query to Delete Admin

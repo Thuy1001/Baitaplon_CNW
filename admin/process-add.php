@@ -1,12 +1,11 @@
 <?php
     
-    $ad_name = $_POST['adname'];
-    $ad_pass= md5($_POST['adpass']);
-    $ad_email = $_POST['ademail'];
-    $ad_phone = $_POST['adphone'];
+    $ad_name    = $_POST['adname'];
+    $ad_pass    = md5($_POST['adpass']);
+    $ad_email   = $_POST['ademail'];
+    $ad_phone   = $_POST['adphone'];
     $ad_address = $_POST['adaddress'];
-    
-   include 'config1.php';
+    include 'config.php';
 
     // Bước 02:
     //$pass_hash=md5($ad_pass,PASSWORD_DEFAULT);

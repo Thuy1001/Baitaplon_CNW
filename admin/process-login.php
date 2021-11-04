@@ -1,7 +1,6 @@
-
 <?php 
 session_start(); 
-include "config1.php";
+include "../config.php";
 
 if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 
@@ -31,13 +30,13 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
+			 $row = mysqli_fetch_assoc($result);
             if ($row['ad_name'] === $adname && $row['ad_pass'] === $adpass) {
-            	$_SESSION['ad_name'] = $row['ad_name'];
+            	$_SESSION['ad_name']  = $row['ad_name'];
             	$_SESSION['ad_email'] = $row['ad_email'];
                 $_SESSION['ad_phone'] = $row['ad_phone'];
-            	$_SESSION['ad_id'] = $row['ad_id'];
-            	header("Location:adm.php");
+            	$_SESSION['ad_id']    = $row['ad_id'];
+            	header("Location:dashboard.php");
 		        exit();
             }else{
 				header("Location:index.php?error=Incorect User name or password");
@@ -50,7 +49,7 @@ if (isset($_POST['ad_name']) && isset($_POST['ad_pass'])) {
 	}
 	
 }else{
-	header("Location:adm.php");
+	header("Location:index.php");
 	exit();
 }
 ?>

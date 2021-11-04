@@ -8,15 +8,14 @@
     <div class="wrapper">
         <h1>Dashboard</h1>
         <br><br>
-        <br><br>
 
         <div class="col-4 text-center">
 
             <?php 
                 //Sql Query 
-                $sql = "SELECT * FROM categories";
+                $sql   = "SELECT * FROM categories";
                 //Execute Query
-                $res = mysqli_query($conn, $sql);
+                $res   = mysqli_query($conn, $sql);
                 //Count Rows
                 $count = mysqli_num_rows($res);
             ?>
@@ -42,11 +41,12 @@
             Product
         </div>
 
-        <div class="col-4 text-center" style="weight=10%">
-            
+        
+        <div class="col-4 text-center">
+
             <?php 
                 //Sql Query 
-                $sql3 = "SELECT * FROM orders";
+                $sql3 = "SELECT * FROM admins";
                 //Execute Query
                 $res3 = mysqli_query($conn, $sql3);
                 //Count Rows
@@ -55,22 +55,54 @@
 
             <h1><?php echo $count3; ?></h1>
             <br />
-            Total Orders
+            Admins
         </div>
 
         <div class="col-4 text-center">
 
+         <?php 
+              //Sql Query 
+              $sql4 = "SELECT * FROM user";
+              //Execute Query
+              $res4 = mysqli_query($conn, $sql4);
+             //Count Rows
+             $count4 = mysqli_num_rows($res4);
+          ?>
+
+          <h1><?php echo $count4; ?></h1>
+          <br />
+          Users
+        </div>
+
+        <div class="col-4 text-center">
+            
+            <?php 
+                //câu lệnh sql
+                $sql5 = "SELECT * FROM orders";
+                //thực hiện truy vấn
+                $res5 = mysqli_query($conn, $sql5);
+                //đến số cột
+                $count5 = mysqli_num_rows($res5);
+            ?>
+
+            <h1><?php echo $count5; ?></h1>
+            <br />
+            Total Orders
+        </div>
+        
+        <div class ="col-4 text-center">
+
             <?php 
         
-                //Creat SQL Query to Get Total Revenue Generated
-                //Aggregate Function in SQL
-                $sql4 = "SELECT SUM(total_amount) AS Total FROM orders WHERE confirm =1";
+                //Tạo truy vấn SQL để nhận tổng hợp đã tạo
+                
+                $sql6 = "SELECT SUM(total_amount) AS Total FROM orders WHERE confirm =1";
 
-                //Execute the Query
-               $res4 = mysqli_query($conn, $sql4);
-                //GEt the Total REvenue
-                $row4 = mysqli_fetch_assoc($res4);
-                $total_revenue = $row4['Total']
+                
+               $res6 = mysqli_query($conn, $sql6);
+                
+                $row6 = mysqli_fetch_assoc($res6);
+                $total_revenue = $row6['Total']
             ?>
             <h1><?php echo $total_revenue; ?></h1>
             <br/>

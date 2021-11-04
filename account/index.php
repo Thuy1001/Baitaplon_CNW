@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN</title>
+	<title>Đăng nhập</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -10,14 +10,14 @@
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
-     	<label>User Name</label>
-     	<input type="text" name="uname" placeholder="User Name"><br>
+     	<label>Tên người dùng</label>
+     	<input type="text" name="uname" placeholder="User name"><br>
 
-     	<label>Password</label>
+     	<label>Mật khẩu</label>
      	<input type="password" name="password" placeholder="Password"><br>
 
-     	<button type="submit">Login</button>
-          <a href="register.php" class="ca">Create an account</a>
+     	<button type="submit">Đăng nhập</button>
+          <a href="register.php" class="ca">Tạo tài khoản</a>
      </form>
 </body>
 </html>

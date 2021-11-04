@@ -6,7 +6,7 @@
    $ad_phone = $_POST['adphone'];
    $ad_address = $_POST['adaddress'];
    
-    include 'config1.php';
+    include '../config.php';
 
     // Bước 02:
     //$pass_hash=password_hash($ad_pass,PASSWORD_DEFAULT);

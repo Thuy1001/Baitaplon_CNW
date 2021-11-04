@@ -1,7 +1,9 @@
+
 <?php 
+
     //Include constants.php file here
     include 'header.php';
-    include 'config1.php';
+    include 'config.php';
 
     // 1. get the ID of Admin to be deleted
     $id = $_GET['id'];

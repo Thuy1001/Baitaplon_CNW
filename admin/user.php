@@ -2,6 +2,7 @@
     <?php
     include 'header.php';
 ?>
+
 <head>
     <title>Quản lý người dùng</title>
     <h1 class="bg-light"style="margin-left: 10%;">Hệ thống quản lý người dùng</h1>
@@ -32,10 +33,10 @@
             <tbody>
             
             <?php 
-      $conn=mysqli_connect('localhost','root','','bookstore');
-      if(!$conn){
-          die("không thể kết nối");
-      }
+                $conn=mysqli_connect('localhost','root','','bookstore');
+                if(!$conn){
+                die("không thể kết nối");
+      } 
           
                     $sql = "SELECT*FROM user";
                     $result = mysqli_query($conn,$sql); 
