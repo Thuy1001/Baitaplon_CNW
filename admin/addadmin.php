@@ -3,6 +3,7 @@
     include 'config.php';
     include 'header.php';
 ?>
+?>
 
     <main class="container">
         <h2>Thêm thông tin </h2>

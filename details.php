@@ -61,6 +61,11 @@
                             <h5 class="card-title">Tên sách: <?php echo $pro_title ?></h5>
                             <p class="card-text"><?php echo $pro_desc?></p>
                            <h6 class="card-text">Giá sản phẩm: <?php echo $pro_price?> VNĐ</h6>
+
+                           <form pro_id="add-to-cart-form"action="cart.php?action=add"method="POST">
+                                <input type ="text" value="1" name="quantity[<?php echo $pro_id?>]" size="2"/>
+                                <input class="btn btn-outline-info btn-detail" type ="submit"  value="Thêm vào giỏ"/>
+                            </form>
                             
                         </div>
                     </div>
