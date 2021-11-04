@@ -1,12 +1,17 @@
 <?php include "header.php" ?>
   <body>
-  <?php include 'config.php'?>
+  
   <style>
     .container{
-      width:80%;
-      margin: auto;
-      display: flex;
-      
+    margin-left: 20%;
+    margin-bottom: 5%;
+    padding-bottom: 4%;
+}
+body{
+  border-width:1px;
+  border-color:#212529;
+}
+
     }
     .show{
       display: flex;
@@ -23,6 +28,9 @@
 img.img-fluid.rounded-start{
   width:50%;
 }
+p.gia{
+  color:#fd7e14;
+}
     </style>
   <h3 class="text-center"> Chi tiết sản phẩm</h3>
  <?php 
@@ -36,20 +44,20 @@ img.img-fluid.rounded-start{
 <?php foreach($result as $value){?>
      <div class= "show">
          <div class="cart">
-           <div class= "name">
-            <p>Tên sản phẩm: <?php echo $value["pro_title"];?></p>
-            <p>Giá: <?php echo number_format($value["pro_price"]);?>VND</p>
+         <div class="image">
+        <img src ="<?php echo $value["feature_image"];?>"class="img-fluid rounded-start" alt="...">
+        </div>    
+            </div>
+            <div class= "name">
+            <h5>Tên sách: <?php echo $value["pro_title"];?></h5>
+            <p class="gia">Giá: <?php echo number_format($value["pro_price"]);?>VND</p>
           </div>
-            <div class="button">
+          <div class="button">
                 <form action="add_cart.php?pro_id=<?php echo $value["pro_id"];?>"method="POST">
                   <button type ="submit" name ="add-to-cart">Add to cart</button>
                 </form>
-                
-      </div>
       <p><?php echo $value["pro_desc"];?></p>
-      <div class="image">
-        <img src ="<?php echo $value["feature_image"];?>"class="img-fluid rounded-start" alt="...">
-</div>
+      
 </div>
 <?php
         }
