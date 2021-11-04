@@ -1,5 +1,6 @@
 
 <?php 
+    session_start();
       $conn=mysqli_connect('localhost','root','','bookstore');
       if(!$conn){
           die("không thể kết nối");
@@ -41,9 +42,31 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Trang chủ</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.php"><i class="fas fa-user"></i> Tài khoản</a>
+
+                                <?php  
+                                if(isset($_SESSION['user_name'])){ 
+                                   ?>
+                                   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Hello, <?php echo$_SESSION['user_name'] ?>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a href="../account/logout_user.php" class="dropdown-item nav-link" name='logout'>Đăng xuất</a></li>
+
+                                        </ul> 
+                                </li><?php  } else {?> 
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="far fa-user-circle"></i> Tài khoản
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a href="../account/login.php" class="dropdown-item nav-link">Đăng nhập</a></li>
+                                            <li><a href="../admin/index.php" class="dropdown-item nav-link">Quản trị viên</a></li>
+                                        </ul>
                                 </li>
+                              <?php } ?>
+                        
                 
                                 <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

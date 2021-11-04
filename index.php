@@ -4,7 +4,7 @@
 <!-- search -->
 <nav class="navbar navbar-light bg-img">
         <div class="container-fluid">
-            <form class="d-flex mx-auto col-md-6" method="post" action="search.php">
+            <form class="d-flex mx-auto col-md-6" id="search" method="post" action="search.php">
                 <input name ="search" class="form-control me-2" type="search" placeholder="Search for Book.." aria-label="Search">
                 <button class ="btn btn-outline-success" type="submit" name="ok">Search </buton>
                 
@@ -36,8 +36,8 @@
                                 <img class="card-img-top" src="images/<?php echo $row['feature_image']; ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title product-title"><?php echo $row['pro_title']; ?></h5>
-                                    <a href ="#" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="details.php?pro_id=<?php echo $row['pro_id'];  ?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
+                                    <a href ="carts1.php" class="btn btn-info btn-add-to-cart" name="add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="details.php?pro_id=<?php echo $row['pro_id'];  ?>" name="add-to-cart" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
                                 </div>
                             
                             </div>
@@ -48,7 +48,8 @@
             } //đóng while
         } //đóng if
                             ?>
-                            
+  
+                        
             <div class="clearfix"></div>
 
 <?php include "footer.php"?>

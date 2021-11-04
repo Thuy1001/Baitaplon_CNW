@@ -1,6 +1,8 @@
+
 <?php include "../admin/header.php" ?>
 <?php include "../admin/config.php" ?>
 <link rel="stylesheet" href="css/adm.css">
+
 
 <?php 
                     if(isset($_SESSION['Add']))
@@ -61,12 +63,11 @@
                 <thead>
                     <tr> 
                         <th>#</th>
-                        <th>Product Code</th>                  
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Image</th>
+                        <th>Tên Sách</th>
+                        <th>Thể Loại</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Hình ảnh</th>
                         <th width="100px">Action</th>
                 
                     </tr>
@@ -93,7 +94,6 @@
                             {
                                 //lấy các giá trị từ các cột                              
                                 $pro_id       = $row['pro_id'];
-                                $pro_code     = $row['pro_code'];
                                 $pro_title    = $row['pro_title'];
                                 $pro_cat      = $row['pro_cat'];
                                 $pro_price    = $row['pro_price'];
@@ -106,7 +106,6 @@
                 
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
-                                    <td><?php echo $pro_code; ?></td>
                                     <td><?php echo $pro_title; ?></td>
                                     <td><?php echo $pro_cat; ?></td>
                                     <td><?php echo $pro_price; ?></td>
@@ -123,7 +122,7 @@
                                     <td>
                                             <a href="<?php echo SITEURL; ?>admin/edit_pro.php?pro_id=<?php echo $pro_id;  ?>"><i class="fa fa-edit"></i></a>
                                            
-                                            <a href="<?php echo SITEURL; ?>admin/delete_pro.php?pro_id=<?php echo $pro_id; ?>"><i class="fa fa-trash"></i></a>
+                                            <a href="<?php echo SITEURL; ?>admin/delete_pro.php?pro_id=<?php echo $pro_id; ?>" onclick="return confirm('Bạn chắc chắn muốn xóa?');"><i class="fa fa-trash"></i></a>
                                             
                                     </td>   
                                 </tr>

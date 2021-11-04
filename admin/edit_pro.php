@@ -72,7 +72,7 @@ if(isset($_POST['btnEditPro']))
         {
             //Nhận thông tin chi tiết của hình ảnh đã chọn
             $feature_image = $_FILES['feature_image']['name'];
-            $starget_dir = "../images/"; //thư mục sẽ lưu ảnh
+            $starget_dir   = "../images/"; //thư mục sẽ lưu ảnh
 
             //Kiểm tra xem hình ảnh có được chọn hay không và chỉ tải lên hình ảnh nếu được chọn
             if($feature_image!="")
@@ -132,8 +132,6 @@ if(isset($_POST['btnEditPro']))
         $_SESSION['Add'] = "<div class='error'>Cập nhật sản phẩm thất bại</div>";
         header('location:../admin/products.php');
     }
-
-    
 }
 
 ?>

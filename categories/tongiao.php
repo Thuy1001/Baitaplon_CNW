@@ -12,9 +12,6 @@
 </nav>
     <!-- end nav search -->
 
-    
-
-
     <?php include"../config.php";?>
 <?php
  if(isset($_GET['cate_id'])){
