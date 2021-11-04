@@ -1,9 +1,9 @@
 <?php
     
-    $ad_name = $_POST['adname'];
-    $ad_pass= md5($_POST['adpass']);
-    $ad_email = $_POST['ademail'];
-    $ad_phone = $_POST['adphone'];
+    $ad_name    = $_POST['adname'];
+    $ad_pass    = md5($_POST['adpass']);
+    $ad_email   = $_POST['ademail'];
+    $ad_phone   = $_POST['adphone'];
     $ad_address = $_POST['adaddress'];
     
    include 'config.php';
@@ -17,7 +17,7 @@
     $result = mysqli_query($conn,$sql);
     // Bước 03:
     if($result > 0){
-        header("Location:index.php");
+        header("Location:adm.php");
     }else{
         echo "Lỗi!";
     }
