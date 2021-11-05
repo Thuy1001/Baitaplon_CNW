@@ -72,6 +72,7 @@
                             <h5 class="card-title">Tên sách: <?php echo $pro_title ?></h5>
                             <p class="card-text"><?php echo $pro_desc?></p>
                             <p class="card-price"><?php echo $pro_price?></p> 
+                            <form action="add_cart.php?pro_id=<?php echo $pro_id;?>"method="POST"></form>
                             <a href ="carts1.php" class="btn btn-info btn-add-to-cart" name="add-to-cart"><i class="fas fa-shopping-cart"></i></a>
                            
                             
