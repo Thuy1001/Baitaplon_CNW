@@ -51,7 +51,9 @@ if($search){
                                     <div class="name ">
                                         <p><?php echo number_format($row["pro_price"]);?>VND</p>
                                          </div>
-                                    
+                                    <form action="add_cart.php?pro_id=<?php echo $row['pro_id'];?>"method="POST">                        
+                                        <button type="submit" name ="add-to-cart" class="btn btn-outline-info btn-detail btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                                    </form>
                                     <a href="details.php?pro_id=<?php echo $row['pro_id']?>" class="btn btn-outline-info btn-detail">Xem chi tiết</a>
                                 </div>
                             
