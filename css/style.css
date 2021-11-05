@@ -205,3 +205,6 @@ legend{
 img.card-img-top {
     height: 350px;
 }
+form {
+    display: contents;
+}
