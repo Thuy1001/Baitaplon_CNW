@@ -29,8 +29,7 @@
                            <h6 class="card-text" name = "pro_price">Giá sản phẩm: <?php echo number_format($value["pro_price"])?> VNĐ</h6>
 
                            <form action="add_cart.php?pro_id=<?php echo $value["pro_id"];?>"method="POST">
-                                <!-- <input type ="text" value="1" name="quantity[<?php //echo $value["pro_id"]?>]" size="2"/> -->
-                                <!-- <a name ="add-to-cart" class="btn btn-outline-info btn-detail" value="Thêm vào giỏ"/>Thêm vào giỏ hàng</a> -->
+                                
                                 <button type ="submit" name ="add-to-cart" class="btn btn-outline-info btn-detail">Thêm vào giỏ hàng</button>
                             </form>
                             
