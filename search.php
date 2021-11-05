@@ -38,7 +38,7 @@
                    {
                        //lấy các giá trị từ các cột                              
                        
-                       
+                       $pro_id        = $row['pro_id'];
                        $pro_title     = $row['pro_title']; 
                        $pro_price     =$row['pro_price'];
                        $pro_desc      = $row['pro_desc'];                        
